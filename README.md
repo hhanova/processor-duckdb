@@ -1,15 +1,16 @@
-# DuckDB processor
+# DuckDB Processor
 
-DuckDB processor is a component that allows running SQL queries on DuckDB database. For more information about DuckDB, please visit the [DuckDB Docs website](https://duckdb.org/docs/).
+The DuckDB processor is a component that allows running SQL queries on the DuckDB database. For more information about DuckDB, please visit the [DuckDB Docs website](https://duckdb.org/docs/).
 
 ## Configuration
 
-Component supports two modes of operation, simple and advanced.
-- **mode** - "simple" (default) / "advanced"
+The component supports two **modes** of operation: 
+- Simple (default)
+- Advanced
 
-
-### Simple mode
-In simple mode, each query operates on a single table in DuckDB which can be created from table defined by name, or by multiple tables matching pattern (along with an arbitrary number of files), and the query output is exported using the name of the input table.
+### Simple Mode
+In simple mode, each query operates on a single table in DuckDB. This table can be created from a table defined by name, or from multiple tables matching a pattern (along with an arbitrary number of files). 
+The query output is exported using the name of the input table.
 
 In the simple mode, the parameter **queries** is an array of queries to be executed. Each query has own input, query and output and is isolated.
 Each query contains the following parameters:
@@ -73,7 +74,7 @@ In simple mode each query, you can utilize the following parameters:
 ```
 
 
-### Advanced mode
+### Advanced Mode
 In advanced mode, first the [relations](https://duckdb.org/docs/api/python/relational_api) from all specified input tables are created.
 Then all defined queries are processed.
 Finally, output tables specified in out_tables are exported to KBC storage.
